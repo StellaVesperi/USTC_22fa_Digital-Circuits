@@ -102,19 +102,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(230,170)" to="(250,170)"/>
     <wire from="(340,110)" to="(410,110)"/>
     <wire from="(340,150)" to="(410,150)"/>
-    <comp lib="1" loc="(230,170)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(110,150)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="D"/>
-    </comp>
-    <comp lib="0" loc="(110,90)" name="Clock"/>
     <comp lib="6" loc="(379,235)" name="Text">
       <a name="text" val="同步复位D触发器，理论上来说，只有当reset为1时"/>
-    </comp>
-    <comp lib="6" loc="(462,262)" name="Text">
-      <a name="text" val="电路才有机会等于D的值，并且只有在D变化与时钟上升沿同步时Q才会输出D的值。"/>
     </comp>
     <comp lib="0" loc="(110,190)" name="Pin">
       <a name="tristate" val="false"/>
@@ -125,19 +114,33 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="6" loc="(324,319)" name="Text">
-      <a name="text" val="一旦reset了0，D再变都没有用"/>
+    <comp lib="1" loc="(230,170)" name="AND Gate">
+      <a name="inputs" val="2"/>
     </comp>
-    <comp loc="(340,110)" name="D触发器"/>
+    <comp lib="0" loc="(110,150)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="D"/>
+    </comp>
+    <comp lib="0" loc="(110,90)" name="Clock"/>
+    <comp lib="6" loc="(129,37)" name="Text">
+      <a name="text" val="有时钟的同步复位D触发器"/>
+    </comp>
+    <comp lib="6" loc="(462,262)" name="Text">
+      <a name="text" val="电路才有机会等于D的值，并且只有在D变化与时钟上升沿同步时Q才会输出D的值。"/>
+    </comp>
     <comp lib="0" loc="(410,110)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="Q"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="6" loc="(324,319)" name="Text">
+      <a name="text" val="一旦reset了0，D再变都没有用"/>
+    </comp>
     <comp lib="6" loc="(451,290)" name="Text">
       <a name="text" val="RESET的变化也要与时钟上升沿同步才有效，变为1开闸，变为0就是把Q置为0"/>
     </comp>
+    <comp loc="(340,110)" name="D触发器"/>
   </circuit>
   <circuit name="双稳电路">
     <a name="circuit" val="双稳电路"/>
@@ -168,11 +171,21 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(160,100)" to="(200,100)"/>
     <wire from="(70,120)" to="(170,120)"/>
     <wire from="(380,160)" to="(420,160)"/>
+    <comp lib="0" loc="(440,160)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
     <comp lib="0" loc="(290,100)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
+    <comp lib="1" loc="(380,100)" name="NOT Gate"/>
+    <comp lib="0" loc="(440,100)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
     <comp lib="1" loc="(140,160)" name="NOT Gate"/>
-    <comp lib="1" loc="(380,160)" name="NOT Gate"/>
     <comp lib="0" loc="(50,100)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
@@ -181,23 +194,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(440,160)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
+    <comp lib="1" loc="(140,100)" name="NOT Gate"/>
     <comp lib="0" loc="(200,160)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(140,100)" name="NOT Gate"/>
-    <comp lib="1" loc="(380,100)" name="NOT Gate"/>
-    <comp lib="0" loc="(440,100)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
+    <comp lib="1" loc="(380,160)" name="NOT Gate"/>
   </circuit>
   <circuit name="SR锁存器">
     <a name="circuit" val="SR锁存器"/>
@@ -232,28 +235,37 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(240,120)" to="(240,150)"/>
     <wire from="(240,120)" to="(370,120)"/>
     <wire from="(190,100)" to="(290,100)"/>
-    <comp lib="6" loc="(287,323)" name="Text">
-      <a name="text" val="任何状态变成r0s1：set, q1\q0"/>
+    <comp lib="1" loc="(350,170)" name="NOR Gate">
+      <a name="inputs" val="2"/>
     </comp>
-    <comp lib="6" loc="(292,280)" name="Text">
-      <a name="text" val="任何状态变成r0s0：保持原状态"/>
+    <comp lib="6" loc="(133,311)" name="Text">
+      <a name="text" val="初次使用要充电！"/>
     </comp>
-    <comp lib="0" loc="(160,60)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="R"/>
-    </comp>
-    <comp lib="6" loc="(285,344)" name="Text">
-      <a name="text" val="有1为1时，另外一个不能为1"/>
+    <comp lib="0" loc="(400,170)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="\Q"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(160,190)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="S"/>
     </comp>
+    <comp lib="6" loc="(293,301)" name="Text">
+      <a name="text" val="任何状态变成r1s0：reset, \q1q0"/>
+    </comp>
+    <comp lib="0" loc="(160,60)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="R"/>
+    </comp>
+    <comp lib="6" loc="(292,280)" name="Text">
+      <a name="text" val="任何状态变成r0s0：保持原状态"/>
+    </comp>
+    <comp lib="6" loc="(287,323)" name="Text">
+      <a name="text" val="任何状态变成r0s1：set, q1\q0"/>
+    </comp>
     <comp lib="1" loc="(350,80)" name="NOR Gate">
       <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(133,311)" name="Text">
-      <a name="text" val="初次使用要充电！"/>
     </comp>
     <comp lib="0" loc="(400,80)" name="Pin">
       <a name="facing" val="west"/>
@@ -261,17 +273,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Q"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="6" loc="(293,301)" name="Text">
-      <a name="text" val="任何状态变成r1s0：reset, \q1q0"/>
-    </comp>
-    <comp lib="1" loc="(350,170)" name="NOR Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(400,170)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="\Q"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="6" loc="(285,344)" name="Text">
+      <a name="text" val="有1为1时，另外一个不能为1"/>
     </comp>
   </circuit>
   <circuit name="D锁存器">
@@ -316,10 +319,25 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(290,280)" to="(360,280)"/>
     <wire from="(110,260)" to="(240,260)"/>
     <wire from="(110,130)" to="(240,130)"/>
-    <comp lib="6" loc="(258,377)" name="Text">
-      <a name="text" val="D锁存器必须要先给CLK通了电才能用"/>
+    <comp lib="0" loc="(470,260)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="\Q"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="1" loc="(210,170)" name="NOT Gate"/>
+    <comp lib="0" loc="(470,170)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Q"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(290,150)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(290,280)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
     <comp lib="0" loc="(90,130)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="CLK"/>
@@ -327,30 +345,15 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(420,260)" name="NOR Gate">
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(290,150)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(470,260)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="\Q"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(420,170)" name="NOR Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(290,280)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="0" loc="(90,300)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
     </comp>
-    <comp lib="0" loc="(470,170)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Q"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="6" loc="(258,377)" name="Text">
+      <a name="text" val="D锁存器必须要先给CLK通了电才能用"/>
+    </comp>
+    <comp lib="1" loc="(420,170)" name="NOR Gate">
+      <a name="inputs" val="2"/>
     </comp>
   </circuit>
   <circuit name="D触发器">
@@ -384,35 +387,35 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(450,170)" to="(490,170)"/>
     <wire from="(450,210)" to="(490,210)"/>
     <wire from="(330,170)" to="(400,170)"/>
-    <comp lib="0" loc="(490,210)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="6" loc="(288,308)" name="Text">
+      <a name="text" val="为触发器添加复位信号，当复位信号（低电平）有效时，Q始终为0.-&gt;转同步复位的D触发器"/>
     </comp>
-    <comp lib="0" loc="(490,170)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
+    <comp loc="(450,170)" name="D锁存器"/>
     <comp lib="0" loc="(50,170)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="CLK"/>
     </comp>
+    <comp loc="(250,170)" name="D锁存器"/>
     <comp lib="6" loc="(273,283)" name="Text">
       <a name="text" val="第二个D锁存器要先初始化CLK的输入再接上前面来的线，否则相当于买了电器没通电"/>
     </comp>
     <comp lib="6" loc="(145,369)" name="Text">
       <a name="text" val="信号，瞬间传输"/>
     </comp>
-    <comp loc="(450,170)" name="D锁存器"/>
-    <comp loc="(250,170)" name="D锁存器"/>
-    <comp lib="6" loc="(288,308)" name="Text">
-      <a name="text" val="为触发器添加复位信号，当复位信号（低电平）有效时，Q始终为0.-&gt;转同步复位的D触发器"/>
-    </comp>
     <comp lib="1" loc="(160,170)" name="NOT Gate"/>
     <comp lib="0" loc="(50,210)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
+    </comp>
+    <comp lib="0" loc="(490,170)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(490,210)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
   <circuit name="同步复位寄存器">
@@ -431,7 +434,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <circ-port height="8" pin="80,80" width="8" x="46" y="56"/>
       <circ-port height="8" pin="70,370" width="8" x="46" y="96"/>
       <circ-port height="10" pin="590,130" width="10" x="105" y="75"/>
-      <circ-port height="8" pin="70,340" width="8" x="46" y="86"/>
+      <circ-port height="8" pin="70,340" width="8" x="46" y="66"/>
       <circ-anchor facing="east" height="6" width="6" x="107" y="77"/>
     </appear>
     <wire from="(180,130)" to="(180,200)"/>
@@ -490,45 +493,30 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(180,130)" to="(310,130)"/>
     <wire from="(180,270)" to="(310,270)"/>
     <wire from="(530,140)" to="(540,140)"/>
-    <comp lib="4" loc="(360,70)" name="D Flip-Flop"/>
-    <comp lib="4" loc="(360,140)" name="D Flip-Flop"/>
-    <comp lib="1" loc="(310,300)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(310,230)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(310,160)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(70,340)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="CLK"/>
-    </comp>
     <comp lib="1" loc="(310,90)" name="AND Gate">
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(90,80)" name="Splitter">
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="4"/>
-      <a name="appear" val="right"/>
-    </comp>
     <comp lib="4" loc="(360,210)" name="D Flip-Flop"/>
-    <comp lib="6" loc="(156,428)" name="Text">
-      <a name="text" val="瞬间传输"/>
+    <comp lib="4" loc="(360,70)" name="D Flip-Flop"/>
+    <comp lib="1" loc="(310,230)" name="AND Gate">
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(560,130)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
-    <comp lib="6" loc="(215,452)" name="Text">
-      <a name="text" val="带有低电平有效的同步复位信号"/>
-    </comp>
     <comp lib="0" loc="(80,80)" name="Pin">
       <a name="width" val="4"/>
       <a name="tristate" val="false"/>
       <a name="label" val="D_IN"/>
+    </comp>
+    <comp lib="4" loc="(360,140)" name="D Flip-Flop"/>
+    <comp lib="6" loc="(156,428)" name="Text">
+      <a name="text" val="瞬间传输"/>
+    </comp>
+    <comp lib="1" loc="(310,300)" name="AND Gate">
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(590,130)" name="Pin">
       <a name="facing" val="west"/>
@@ -537,11 +525,25 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="D_OUT"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="0" loc="(90,80)" name="Splitter">
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(70,340)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
     <comp lib="0" loc="(70,370)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="RST_N"/>
     </comp>
+    <comp lib="6" loc="(215,452)" name="Text">
+      <a name="text" val="带有低电平有效的同步复位信号"/>
+    </comp>
     <comp lib="4" loc="(360,280)" name="D Flip-Flop"/>
+    <comp lib="1" loc="(310,160)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
   </circuit>
   <circuit name="简单时序逻辑电路">
     <a name="circuit" val="简单时序逻辑电路"/>
@@ -550,40 +552,36 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelfont" val="SansSerif plain 12"/>
     <wire from="(370,240)" to="(430,240)"/>
     <wire from="(180,200)" to="(240,200)"/>
-    <wire from="(130,240)" to="(130,250)"/>
-    <wire from="(130,260)" to="(130,270)"/>
     <wire from="(320,240)" to="(370,240)"/>
     <wire from="(370,130)" to="(370,240)"/>
     <wire from="(240,220)" to="(260,220)"/>
     <wire from="(90,210)" to="(140,210)"/>
     <wire from="(100,130)" to="(370,130)"/>
+    <wire from="(120,230)" to="(260,230)"/>
     <wire from="(160,160)" to="(160,180)"/>
-    <wire from="(120,240)" to="(130,240)"/>
-    <wire from="(120,270)" to="(130,270)"/>
+    <wire from="(120,260)" to="(260,260)"/>
     <wire from="(240,200)" to="(240,220)"/>
     <wire from="(100,190)" to="(140,190)"/>
-    <wire from="(130,250)" to="(260,250)"/>
-    <wire from="(130,260)" to="(260,260)"/>
     <wire from="(100,130)" to="(100,190)"/>
+    <comp lib="3" loc="(180,200)" name="Adder">
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(120,230)" name="Clock"/>
+    <comp lib="0" loc="(120,260)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
     <comp lib="0" loc="(430,240)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="4"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(120,240)" name="Clock"/>
     <comp lib="0" loc="(90,210)" name="Constant">
       <a name="width" val="4"/>
     </comp>
     <comp lib="0" loc="(160,160)" name="Constant">
       <a name="facing" val="south"/>
       <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="3" loc="(180,200)" name="Adder">
-      <a name="width" val="4"/>
-    </comp>
-    <comp lib="0" loc="(120,270)" name="Pin">
-      <a name="tristate" val="false"/>
     </comp>
     <comp loc="(320,240)" name="同步复位寄存器"/>
   </circuit>
@@ -606,6 +604,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(290,230)" to="(330,230)"/>
     <wire from="(100,120)" to="(200,120)"/>
     <wire from="(100,250)" to="(200,250)"/>
+    <comp lib="0" loc="(330,230)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="\Q"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(330,140)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Q"/>
+      <a name="labelloc" val="east"/>
+    </comp>
     <comp lib="1" loc="(260,230)" name="NOR Gate">
       <a name="inputs" val="2"/>
     </comp>
@@ -613,24 +623,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="S"/>
     </comp>
-    <comp lib="0" loc="(330,230)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="\Q"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp lib="0" loc="(100,120)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="R"/>
     </comp>
     <comp lib="1" loc="(260,140)" name="NOR Gate">
       <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(330,140)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Q"/>
-      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
   <circuit name="T2">
@@ -659,47 +657,47 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(220,190)" to="(260,190)"/>
     <wire from="(80,180)" to="(180,180)"/>
     <wire from="(360,190)" to="(430,190)"/>
-    <comp lib="0" loc="(80,180)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="D"/>
-    </comp>
-    <comp lib="1" loc="(200,150)" name="NOT Gate"/>
-    <comp lib="0" loc="(80,230)" name="Power">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(80,290)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="rst_n"/>
-    </comp>
-    <comp lib="6" loc="(240,207)" name="Text">
-      <a name="text" val="temp2"/>
-    </comp>
-    <comp lib="0" loc="(80,150)" name="Clock"/>
-    <comp lib="0" loc="(80,260)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="rst"/>
-    </comp>
-    <comp lib="0" loc="(80,200)" name="Ground">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(480,150)" name="D锁存器"/>
-    <comp loc="(310,150)" name="D锁存器"/>
-    <comp lib="6" loc="(173,228)" name="Text">
-      <a name="text" val="temp1"/>
-    </comp>
-    <comp loc="(220,190)" name="2-1 MUX"/>
     <comp lib="0" loc="(510,150)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="Q"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="6" loc="(240,207)" name="Text">
+      <a name="text" val="temp2"/>
+    </comp>
+    <comp lib="1" loc="(200,150)" name="NOT Gate"/>
+    <comp lib="0" loc="(80,260)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="rst"/>
+    </comp>
+    <comp loc="(160,210)" name="2-1 MUX"/>
+    <comp loc="(480,150)" name="D锁存器"/>
+    <comp lib="0" loc="(80,200)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="0" loc="(510,190)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(160,210)" name="2-1 MUX"/>
+    <comp loc="(310,150)" name="D锁存器"/>
+    <comp lib="0" loc="(80,150)" name="Clock"/>
+    <comp loc="(220,190)" name="2-1 MUX"/>
+    <comp lib="0" loc="(80,230)" name="Power">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(80,180)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="D"/>
+    </comp>
+    <comp lib="6" loc="(173,228)" name="Text">
+      <a name="text" val="temp1"/>
+    </comp>
+    <comp lib="0" loc="(80,290)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="rst_n"/>
+    </comp>
   </circuit>
   <circuit name="2-1 MUX">
     <a name="circuit" val="2-1 MUX"/>
@@ -732,6 +730,26 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(240,130)" to="(280,130)"/>
     <wire from="(200,180)" to="(240,180)"/>
     <wire from="(330,110)" to="(370,110)"/>
+    <comp lib="1" loc="(120,110)" name="NOT Gate"/>
+    <comp lib="0" loc="(40,200)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="d1"/>
+    </comp>
+    <comp lib="1" loc="(200,50)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(370,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="out"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(224,41)" name="Text">
+      <a name="text" val="carry 1"/>
+    </comp>
+    <comp lib="6" loc="(220,199)" name="Text">
+      <a name="text" val="carry 2"/>
+    </comp>
     <comp lib="0" loc="(40,30)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="d0"/>
@@ -742,32 +760,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(137,92)" name="Text">
       <a name="text" val="carry0"/>
     </comp>
-    <comp lib="1" loc="(120,110)" name="NOT Gate"/>
-    <comp lib="6" loc="(224,41)" name="Text">
-      <a name="text" val="carry 1"/>
-    </comp>
-    <comp lib="1" loc="(330,110)" name="OR Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(40,200)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="d1"/>
-    </comp>
-    <comp lib="6" loc="(220,199)" name="Text">
-      <a name="text" val="carry 2"/>
-    </comp>
-    <comp lib="1" loc="(200,50)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="0" loc="(40,110)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="s"/>
     </comp>
-    <comp lib="0" loc="(370,110)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="out"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="1" loc="(330,110)" name="OR Gate">
+      <a name="inputs" val="2"/>
     </comp>
   </circuit>
   <circuit name="同步复位D触发器">
@@ -800,10 +798,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(230,170)" to="(250,170)"/>
     <wire from="(340,110)" to="(410,110)"/>
     <wire from="(340,150)" to="(410,150)"/>
-    <comp lib="0" loc="(410,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="1" loc="(230,170)" name="AND Gate">
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(110,90)" name="Pin">
       <a name="tristate" val="false"/>
@@ -815,21 +811,23 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Q"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(340,110)" name="D触发器"/>
     <comp lib="6" loc="(238,253)" name="Text">
       <a name="text" val="瞬间点击"/>
+    </comp>
+    <comp lib="0" loc="(410,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(110,150)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
     </comp>
-    <comp lib="1" loc="(230,170)" name="AND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="0" loc="(110,190)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="/RST"/>
     </comp>
+    <comp loc="(340,110)" name="D触发器"/>
   </circuit>
   <circuit name="异步复位D触发器">
     <a name="circuit" val="异步复位D触发器"/>
@@ -861,13 +859,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
     </comp>
+    <comp lib="4" loc="(270,180)" name="D Flip-Flop"/>
     <comp lib="0" loc="(160,260)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="CLR"/>
-    </comp>
-    <comp lib="0" loc="(160,180)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="CLK"/>
     </comp>
     <comp lib="0" loc="(390,180)" name="Pin">
       <a name="facing" val="west"/>
@@ -875,15 +870,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Q"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="6" loc="(269,307)" name="Text">
+      <a name="text" val="CLR是复位键，高电平有效，不管时钟信号和输入信号是什么，只要CLR有效，输出就变成0(低电平)"/>
+    </comp>
+    <comp lib="0" loc="(160,180)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="CLK"/>
+    </comp>
     <comp lib="0" loc="(390,200)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="/Q"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="4" loc="(270,180)" name="D Flip-Flop"/>
-    <comp lib="6" loc="(269,307)" name="Text">
-      <a name="text" val="CLR是复位键，高电平有效，不管时钟信号和输入信号是什么，只要CLR有效，输出就变成0(低电平)"/>
     </comp>
   </circuit>
   <circuit name="异步复位寄存器">
@@ -900,9 +898,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="29" y="114">CLK</text>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="77" y="93">D_REG异</text>
       <circ-port height="8" pin="70,120" width="8" x="46" y="66"/>
-      <circ-port height="8" pin="60,490" width="8" x="46" y="106"/>
       <circ-port height="8" pin="60,540" width="8" x="76" y="116"/>
       <circ-port height="10" pin="530,130" width="10" x="105" y="85"/>
+      <circ-port height="8" pin="60,490" width="8" x="46" y="106"/>
       <circ-anchor facing="east" height="6" width="6" x="107" y="87"/>
     </appear>
     <wire from="(210,350)" to="(210,480)"/>
@@ -954,9 +952,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="CLR"/>
     </comp>
+    <comp loc="(310,280)" name="异步复位D触发器"/>
     <comp loc="(310,100)" name="异步复位D触发器"/>
     <comp loc="(310,190)" name="异步复位D触发器"/>
-    <comp loc="(310,380)" name="异步复位D触发器"/>
     <comp lib="0" loc="(70,120)" name="Pin">
       <a name="width" val="4"/>
       <a name="tristate" val="false"/>
@@ -974,12 +972,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
+    <comp loc="(310,380)" name="异步复位D触发器"/>
     <comp lib="0" loc="(70,120)" name="Splitter">
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
       <a name="appear" val="right"/>
     </comp>
-    <comp loc="(310,280)" name="异步复位D触发器"/>
     <comp lib="0" loc="(60,490)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="CLK"/>
@@ -1002,19 +1000,20 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(160,210)" to="(200,210)"/>
     <wire from="(170,140)" to="(460,140)"/>
     <wire from="(340,250)" to="(340,290)"/>
-    <comp lib="3" loc="(240,200)" name="Adder">
-      <a name="width" val="4"/>
+    <comp lib="0" loc="(140,240)" name="Clock">
+      <a name="label" val="CLK"/>
     </comp>
+    <comp loc="(370,220)" name="异步复位寄存器"/>
     <comp lib="0" loc="(220,170)" name="Constant">
       <a name="facing" val="south"/>
       <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(140,240)" name="Clock">
-      <a name="label" val="CLK"/>
-    </comp>
     <comp lib="0" loc="(140,290)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="CLR"/>
+    </comp>
+    <comp lib="3" loc="(240,200)" name="Adder">
+      <a name="width" val="4"/>
     </comp>
     <comp lib="0" loc="(520,220)" name="Pin">
       <a name="facing" val="west"/>
@@ -1026,7 +1025,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(160,210)" name="Constant">
       <a name="width" val="4"/>
     </comp>
-    <comp loc="(370,220)" name="异步复位寄存器"/>
   </circuit>
   <circuit name="T4">
     <a name="circuit" val="T4"/>
@@ -1105,52 +1103,27 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(290,300)" to="(290,360)"/>
     <wire from="(470,300)" to="(470,360)"/>
     <wire from="(130,300)" to="(130,360)"/>
-    <comp lib="1" loc="(120,360)" name="NOT Gate"/>
-    <comp lib="2" loc="(450,150)" name="Multiplexer">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="0" loc="(550,460)" name="Pin">
+    <comp lib="0" loc="(460,60)" name="Ground">
       <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Q2"/>
-      <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="4" loc="(180,300)" name="T Flip-Flop"/>
-    <comp lib="4" loc="(710,300)" name="T Flip-Flop"/>
-    <comp lib="1" loc="(600,110)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(70,420)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="4" loc="(530,300)" name="T Flip-Flop"/>
     <comp lib="0" loc="(360,460)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="label" val="Q1"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(460,60)" name="Ground">
-      <a name="facing" val="north"/>
+    <comp lib="4" loc="(710,300)" name="T Flip-Flop"/>
+    <comp lib="6" loc="(751,518)" name="Text">
+      <a name="text" val="高位"/>
     </comp>
-    <comp lib="0" loc="(80,320)" name="Power">
-      <a name="facing" val="west"/>
+    <comp lib="4" loc="(340,300)" name="T Flip-Flop"/>
+    <comp lib="0" loc="(70,420)" name="Pin">
+      <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(290,60)" name="Ground">
-      <a name="facing" val="north"/>
+    <comp lib="6" loc="(153,509)" name="Text">
+      <a name="text" val="低位"/>
     </comp>
     <comp lib="0" loc="(70,360)" name="Clock"/>
-    <comp lib="1" loc="(420,100)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(740,460)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Q3"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp lib="1" loc="(170,160)" name="NOR Gate">
       <a name="facing" val="north"/>
       <a name="inputs" val="4"/>
@@ -1158,13 +1131,44 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="2" loc="(280,140)" name="Multiplexer">
       <a name="facing" val="south"/>
     </comp>
-    <comp lib="4" loc="(340,300)" name="T Flip-Flop"/>
+    <comp lib="2" loc="(450,150)" name="Multiplexer">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="1" loc="(600,110)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(80,320)" name="Power">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="1" loc="(420,100)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(550,460)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Q2"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(290,60)" name="Ground">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="1" loc="(120,360)" name="NOT Gate"/>
+    <comp lib="0" loc="(740,460)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Q3"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="4" loc="(530,300)" name="T Flip-Flop"/>
     <comp lib="0" loc="(190,460)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="label" val="Q0"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="4" loc="(180,300)" name="T Flip-Flop"/>
   </circuit>
   <circuit name="T5">
     <a name="circuit" val="T5"/>
@@ -1182,32 +1186,69 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(230,170)" to="(250,170)"/>
     <wire from="(340,110)" to="(410,110)"/>
     <wire from="(340,150)" to="(410,150)"/>
+    <comp lib="0" loc="(410,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
     <comp lib="1" loc="(230,170)" name="AND Gate">
       <a name="inputs" val="2"/>
     </comp>
     <comp lib="1" loc="(140,190)" name="NOT Gate"/>
+    <comp loc="(340,110)" name="D触发器"/>
+    <comp lib="0" loc="(100,190)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="RST"/>
+    </comp>
+    <comp lib="0" loc="(110,90)" name="Clock">
+      <a name="label" val="CLK"/>
+    </comp>
+    <comp lib="6" loc="(134,284)" name="Text">
+      <a name="text" val="RST==1，复位，不过有延迟"/>
+    </comp>
     <comp lib="0" loc="(410,110)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="Q"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(110,90)" name="Clock">
-      <a name="label" val="CLK"/>
-    </comp>
     <comp lib="0" loc="(110,150)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
     </comp>
-    <comp lib="0" loc="(410,150)" name="Pin">
+  </circuit>
+  <circuit name="test">
+    <a name="circuit" val="test"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(260,210)" to="(260,260)"/>
+    <wire from="(160,180)" to="(230,180)"/>
+    <wire from="(160,200)" to="(230,200)"/>
+    <wire from="(270,180)" to="(390,180)"/>
+    <wire from="(270,200)" to="(390,200)"/>
+    <wire from="(160,260)" to="(260,260)"/>
+    <comp lib="4" loc="(270,180)" name="D Flip-Flop"/>
+    <comp lib="0" loc="(160,260)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="CLR"/>
+    </comp>
+    <comp lib="0" loc="(160,200)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="D"/>
+    </comp>
+    <comp lib="0" loc="(160,180)" name="Clock"/>
+    <comp lib="0" loc="(390,200)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
+      <a name="label" val="/Q"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(340,110)" name="D触发器"/>
-    <comp lib="0" loc="(100,190)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="RST"/>
+    <comp lib="0" loc="(390,180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Q"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
 </project>
