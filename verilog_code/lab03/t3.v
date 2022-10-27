@@ -1,4 +1,4 @@
-module REG4( //用异步复位的寄存器搭建的计数器
+module REG4( //用异步复位的触发器搭建的寄存器搭建的计数器
     input CLK, CLR,
     output reg [3:0] counter
 );
@@ -8,6 +8,6 @@ begin
     if (CLR == 1)
         counter <= 4'b0;
     else 
-        counter <= D_IN;
+        counter <= counter + 4'b1;
 end
 endmodule
